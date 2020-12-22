@@ -1,0 +1,92 @@
+{
+    "ats-list": [
+        {
+            "name": "Железная",
+            "list": [
+                "Avaya IP Office",
+                "Cisco UCM",
+                "LG iPecs",
+                "Panasonic KX-TDA/TDE, КX-NS",
+                "Samsung OfficeServ"
+            ]
+        },
+        {
+            "name": "Программная",
+            "list": [
+                "Ascozia",
+                "Asteriks выше версии 1.6",
+                "Elastix",
+                "FreePBX",
+                "Oktell",
+                "VoxLink",
+                "Yeastar"
+            ]
+        },
+        {
+            "name": "Облачная АТС",
+            "list": [
+                "BeeLine",
+                "Mango",
+                "MTS",
+                "Rostelecom",
+                "Telfin",
+                "UIS",
+                "Yandex",
+                "Zadarma"
+            ]
+        },
+        {
+            "name": "iToolabs (Облачная АТС)",
+            "list": [
+                "Altegro",
+                "Comiten",
+                "COMLINK",
+                "DreamNet",
+                "Easytel",
+                "EVO",
+                "Finenumbers",
+                "OpenSpeak",
+                "Power Telecom",
+                "RiNet",
+                "SipVip",
+                "Smartcard",
+                "Spacetel",
+                "Tashir Telecom",
+                "Tekmi",
+                "TelefonN",
+                "Telepro",
+                "Virgin Connect",
+                "Авантел",
+                "АльянсТелеком",
+                "ВАМтел",
+                "ВекторТел",
+                "Вест колл (Москва)",
+                "ВестКолл СПб",
+                "Гарс Телеком",
+                "Гравител",
+                "Деловая Сеть – Иркутск",
+                "Интеграл",
+                "Инт-Информ",
+                "Кловертел",
+                "Корпорация VoIP",
+                "Мегафон",
+                "Наука-связь",
+                "Новые Телефонные Системы",
+                "Рукомтех",
+                "Русские системы",
+                "Связь-Холдинг",
+                "Сибирские Сети",
+                "Твинго телеком",
+                "Телетай",
+                "Технологии для жизни",
+                "ТТК",
+                "Ультрамарин",
+                "Щелково•net",
+                "Экомобайл",
+                "Эконотел",
+                "Энфорта",
+                "Юг-Телеком"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+html,
+body {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.app {
+    height: 100%;
+    background-image: url('../img/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 1110px;
+    margin: auto;
+
+    &::before {
+        display: table;
+        content: '';
+    }
+}
+
+@import './main-header.scss';
+@import './step-container.scss';
+@import './choose-ats.scss';
+@import './ats-list.scss';

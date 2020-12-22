@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>123</title>
+</head>
+
+<body>
+    <div id="app" class="app">
+        <section class="container">
+            <div class="main-header">1/2 Какая у вас АТС?</div>
+            <div class="step-container">
+                <div class="step-container-content">
+                    <div class="choose-ats">
+                        <div class="choose-ats__not-chosen">У меня нет АТС</div>
+
+                    </div>
+                    <div class="ats-list">
+                        <template v-for="(ats, atsIndex) in atsList">
+                            <div class="ats-list__header">{{ats.name}}</div>
+                            <div class="ats-list__item" v-for="(atsItem, atsItemIndex) in ats.list"
+                                :key="`${atsIndex}-${atsItemIndex}`">
+                                {{atsItem}}
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="step-container-footer">
+                    <div class="next-step-button">Перейти к следующему шагу</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,13 +1,6 @@
-import Vue from 'Vue/dist/vue.esm';
-import axios from 'axios';
+import Vue from 'Vue';
+import App from '../vue/App.vue';
 
 new Vue({
-    data: {
-        atsList: [],
-    },
-    mounted () {
-        axios('./data/ats.json').then((result) => {
-            this.atsList = result.data['ats-list'];
-        });
-    },
+    render: h => h(App),
 }).$mount('#app');

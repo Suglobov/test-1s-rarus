@@ -10,31 +10,7 @@
 </head>
 
 <body>
-    <div id="app" class="app">
-        <section class="container">
-            <div class="main-header">1/2 Какая у вас АТС?</div>
-            <div class="step-container">
-                <div class="step-container-content">
-                    <div class="choose-ats">
-                        <div class="choose-ats__not-chosen">У меня нет АТС</div>
-
-                    </div>
-                    <div class="ats-list">
-                        <template v-for="(ats, atsIndex) in atsList">
-                            <div class="ats-list__header">{{ats.name}}</div>
-                            <div class="ats-list__item" v-for="(atsItem, atsItemIndex) in ats.list"
-                                :key="`${atsIndex}-${atsItemIndex}`">
-                                {{atsItem}}
-                            </div>
-                        </template>
-                    </div>
-                </div>
-                <div class="step-container-footer">
-                    <div class="next-step-button">Перейти к следующему шагу</div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <div id="app"></div>
 </body>
 
 </html>

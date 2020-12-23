@@ -12,7 +12,7 @@
     "gulp-watch": "npx gulp -f babel.gulp.js watch",
     "gulp-copyimg": "npx gulp -f babel.gulp.js copyimg",
     "eslint-fix": "npx eslint src/** --fix",
-    "stylelint-fix": "npx stylelint ./src/** --fix",
+    "stylelint-fix": "npx stylelint ../src/**/*{.css,.scss,.vue} --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
@@ -63,6 +63,7 @@
     "stylelint-scss": "^3.18.0",
     "vue": "^2.6.12",
     "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0"
   },

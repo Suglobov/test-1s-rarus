@@ -25,5 +25,5 @@ exports.copyimg = copyimg;
 exports.default = scss;
 exports.watch = function () {
     gulp.watch('./src/scss/**/*.scss', scss);
-    gulp.watch('./src/img/**', img);
+    gulp.watch('./src/img/**', copyimg);
 };

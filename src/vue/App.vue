@@ -11,6 +11,7 @@
             >
                 <template #atsList>
                     <AtsList
+                        class="ats-list_active-item-with-check"
                         :ats-list="atsList"
                         :active-ats-group.sync="activeAtsGroup"
                         :active-ats-name.sync="activeAtsName"
@@ -25,10 +26,10 @@
             >
                 <template #atsList>
                     <AtsList
-                        class="test"
                         :ats-list="atsList"
                         :active-ats-group.sync="activeAtsGroup"
                         :active-ats-name.sync="activeAtsName"
+                        :is-clear-button-is-at-end="true"
                     />
                 </template>
             </Step2>
@@ -75,6 +76,11 @@ export default {
         },
         activeAtsName () {
             this.saveToStorage();
+        },
+        isSelectionClear () {
+            if (this.isSelectionClear === true) {
+                this.step = 1;
+            }
         },
     },
     mounted () {

@@ -1,8 +1,9 @@
 <template>
     <div class="ats-list">
         <a
+            v-show="!isClearButtonIsAtEnd"
             href="javascript:;"
-            class="ats-list__clear"
+            class="ats-list__clear ats-list__clear_top"
             @click="clearSelection"
         >
             У меня нет АТС
@@ -27,6 +28,14 @@
                 {{ atsName }}
             </a>
         </div>
+        <a
+            v-show="isClearButtonIsAtEnd"
+            href="javascript:;"
+            class="ats-list__clear"
+            @click="clearSelection"
+        >
+            У меня нет АТС
+        </a>
     </div>
 </template>
 
@@ -44,6 +53,10 @@ export default {
         activeAtsName: {
             type: String,
             default: '',
+        },
+        isClearButtonIsAtEnd: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {
@@ -69,7 +82,3 @@ export default {
     },
 };
 </script>
-
-<style>
-
-</style>

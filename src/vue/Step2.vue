@@ -17,7 +17,10 @@
             <div class="step2-top-block">
                 <div class="step2-top-block__text-row">
                     <span class="step2-top-block__title">Модель АТС:</span>
-                    <span class="step2-active-ats">
+                    <span
+                        ref="step2-active-ats"
+                        class="step2-active-ats"
+                    >
                         <a
                             href="javascript:;"
                             class="step2-active-ats__link"
@@ -26,8 +29,7 @@
                             <span class="step2-active-ats__icon" />
                         </a>
                         <span
-                            ref="step2-ats-list"
-                            class="step2-ats-list"
+                            class="step2-active-ats__list"
                         >
                             <slot name="atsList" />
                         </span>
@@ -141,8 +143,7 @@ export default {
             this.$emit('to-prev-step');
         },
         toggleAtsList () {
-            console.log('asdf');
-            this.$refs['step2-ats-list'].classList.toggle('step2-ats-list_show');
+            this.$refs['step2-active-ats'].classList.toggle('step2-active-ats_show-list');
         },
     },
 };

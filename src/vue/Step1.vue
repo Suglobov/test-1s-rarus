@@ -6,9 +6,7 @@
             </div>
         </div>
         <div class="step-container">
-            <div class="step-container__content">
-                <slot name="atsList" />
-            </div>
+            <slot name="atsList" />
             <div class="step-container__footer">
                 <button
                     class="button-step1"

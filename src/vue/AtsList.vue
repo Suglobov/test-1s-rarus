@@ -76,9 +76,6 @@ export default {
             this.$emit('update:activeAtsGroup', '');
             this.$emit('update:activeAtsName', '');
         },
-        // toNextStep (event) {
-        //     this.$emit('to-next-step');
-        // },
     },
 };
 </script>

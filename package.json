@@ -12,21 +12,8 @@
     "gulp-watch": "npx gulp -f babel.gulp.js watch",
     "gulp-copyimg": "npx gulp -f babel.gulp.js copyimg",
     "eslint-fix": "npx eslint src/** --fix",
-    "stylelint-fix": "npx stylelint ../src/**/*{.css,.scss,.vue} --fix",
+    "stylelint-fix": "npx stylelint ./src/**/*{.css,.scss,.vue} --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.(js|jsx|ts|vue)": [
-      "npx eslint --fix"
-    ],
-    "src/**/*.(css|scss|vue)": [
-      "npx stylelint --fix"
-    ]
   },
   "keywords": [],
   "author": "",

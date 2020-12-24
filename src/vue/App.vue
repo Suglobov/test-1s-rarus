@@ -6,16 +6,32 @@
         <section class="container">
             <Step1
                 v-if="step === 1"
-                :ats-list="atsList"
-                :active-ats-group.sync="activeAtsGroup"
-                :active-ats-name.sync="activeAtsName"
+                :is-active-button-next="isSelectionClear === false"
                 @to-next-step="from1StepToNext"
-            />
+            >
+                <template #atsList>
+                    <AtsList
+                        :ats-list="atsList"
+                        :active-ats-group.sync="activeAtsGroup"
+                        :active-ats-name.sync="activeAtsName"
+                    />
+                </template>
+            </Step1>
             <Step2
                 v-else
-                :ats-list="atsList"
+                :active-ats-name="activeAtsName"
+                :settings="step2Object"
                 @to-prev-step="from2StepToPrev"
-            />
+            >
+                <template #atsList>
+                    <AtsList
+                        class="test"
+                        :ats-list="atsList"
+                        :active-ats-group.sync="activeAtsGroup"
+                        :active-ats-name.sync="activeAtsName"
+                    />
+                </template>
+            </Step2>
         </section>
     </div>
 </template>
@@ -24,12 +40,14 @@
 import axios from 'axios';
 import Step1 from './Step1.vue';
 import Step2 from './Step2.vue';
+import AtsList from './AtsList.vue';
 
 
 export default {
     components: {
         Step1,
         Step2,
+        AtsList,
     },
     data () {
         return {
@@ -37,9 +55,20 @@ export default {
             activeAtsGroup: '',
             activeAtsName: '',
             step: 1,
+            step2Object: {
+                '1C program': '',
+                'suitable program': '',
+                'links to instructions': [],
+                'supported features': [],
+                'unsupported features': [],
+            },
         };
     },
-    computed: { },
+    computed: {
+        isSelectionClear () {
+            return this.activeAtsGroup === '' && this.activeAtsName === '';
+        },
+    },
     watch: {
         activeAtsGroup () {
             this.saveToStorage();
@@ -58,8 +87,9 @@ export default {
     methods: {
         from1StepToNext () {
             this.saveToStorage();
-            this.step = 2;
             this.sendStep1Data();
+            this.getDataToStep2();
+            this.step = 2;
         },
         from2StepToPrev () {
             this.step = 1;
@@ -70,6 +100,11 @@ export default {
         },
         sendStep1Data () {
             // sendStep1Data
+        },
+        getDataToStep2 () {
+            axios('./data/demo-data.json').then((result) => {
+                this.step2Object = result.data;
+            });
         },
     },
 };

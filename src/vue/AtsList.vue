@@ -1,36 +1,72 @@
 <template>
     <div class="ats-list">
-        <div
+        <a
+            href="javascript:;"
             class="ats-list__clear"
             @click="clearSelection"
         >
             У меня нет АТС
-        </div>
+        </a>
         <div
-            v-for="(ats, atsIndex) in atsList"
-            :key="atsIndex"
+            v-for="(atsGroup, atsGroupIndex) in atsList"
+            :key="atsGroupIndex"
         >
             <div class="ats-list__header">
-                {{ ats.name }}
+                {{ atsGroup.name }}
             </div>
-            <div
-                v-for="(atsItem, atsItemIndex) in ats.list"
-                :key="`${atsIndex}-${atsItemIndex}`"
+            <a
+                v-for="(atsName, atsNameIndex) in atsGroup.list"
+                :key="`${atsGroupIndex}-${atsNameIndex}`"
+                href="javascript:;"
                 class="ats-list__item"
                 :class="{
-                    'ats-list__item_active': isThisItemActive(atsIndex, atsItemIndex)
+                    'ats-list__item_active': isThisItemActive(atsGroup.name, atsName)
                 }"
-                @click="chooseAts(atsIndex, atsItemIndex)"
+                @click="selectAts(atsGroup.name, atsName)"
             >
-                {{ atsItem }}
-            </div>
+                {{ atsName }}
+            </a>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    props: {
+        atsList: {
+            type: Array,
+            default: () => ([]),
+        },
+        activeAtsGroup: {
+            type: String,
+            default: '',
+        },
+        activeAtsName: {
+            type: String,
+            default: '',
+        },
+    },
+    computed: {
+        isSelectionClear () {
+            return this.activeAtsGroup === '' && this.activeAtsName === '';
+        },
+    },
+    methods: {
+        isThisItemActive (atsGroupName, atsName) {
+            return atsGroupName === this.activeAtsGroup && atsName === this.activeAtsName;
+        },
+        selectAts (atsGroupName, atsName) {
+            this.$emit('update:activeAtsGroup', atsGroupName);
+            this.$emit('update:activeAtsName', atsName);
+        },
+        clearSelection () {
+            this.$emit('update:activeAtsGroup', '');
+            this.$emit('update:activeAtsName', '');
+        },
+        // toNextStep (event) {
+        //     this.$emit('to-next-step');
+        // },
+    },
 };
 </script>
 

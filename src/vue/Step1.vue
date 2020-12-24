@@ -6,45 +6,17 @@
             </div>
         </div>
         <div class="step-container">
-            <div class="step-container-content">
-                <div class="ats-list">
-                    <a
-                        href="javascript:;"
-                        class="ats-list__clear"
-                        @click="clearSelection"
-                    >
-                        У меня нет АТС
-                    </a>
-                    <div
-                        v-for="(atsGroup, atsGroupIndex) in atsList"
-                        :key="atsGroupIndex"
-                    >
-                        <div class="ats-list__header">
-                            {{ atsGroup.name }}
-                        </div>
-                        <a
-                            v-for="(atsName, atsNameIndex) in atsGroup.list"
-                            :key="`${atsGroupIndex}-${atsNameIndex}`"
-                            href="javascript:;"
-                            class="ats-list__item"
-                            :class="{
-                                'ats-list__item_active': isThisItemActive(atsGroup.name, atsName)
-                            }"
-                            @click="selectAts(atsGroup.name, atsName)"
-                        >
-                            {{ atsName }}
-                        </a>
-                    </div>
-                </div>
+            <div class="step-container__content">
+                <slot name="atsList" />
             </div>
-            <div class="step-container-footer">
+            <div class="step-container__footer">
                 <button
-                    class="next-step-button"
-                    :disabled="isSelectionClear"
+                    class="button-step1"
+                    :disabled="isActiveButtonNext === false"
                     @click="toNextStep"
                 >
                     Перейти к следующему шагу
-                    <span class="next-step-button__icon icon-arrow-right" />
+                    <span class="button-step1__icon" />
                 </button>
             </div>
         </div>
@@ -54,36 +26,12 @@
 <script>
 export default {
     props: {
-        atsList: {
-            type: Array,
-            default: () => ([]),
-        },
-        activeAtsGroup: {
-            type: String,
-            default: '',
-        },
-        activeAtsName: {
-            type: String,
-            default: '',
-        },
-    },
-    computed: {
-        isSelectionClear () {
-            return this.activeAtsGroup === '' && this.activeAtsName === '';
+        isActiveButtonNext: {
+            type: Boolean,
+            default: false,
         },
     },
     methods: {
-        isThisItemActive (atsGroupName, atsName) {
-            return atsGroupName === this.activeAtsGroup && atsName === this.activeAtsName;
-        },
-        selectAts (atsGroupName, atsName) {
-            this.$emit('update:activeAtsGroup', atsGroupName);
-            this.$emit('update:activeAtsName', atsName);
-        },
-        clearSelection () {
-            this.$emit('update:activeAtsGroup', '');
-            this.$emit('update:activeAtsName', '');
-        },
         toNextStep (event) {
             this.$emit('to-next-step');
         },

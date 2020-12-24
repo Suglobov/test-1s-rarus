@@ -1,0 +1,53 @@
+.functionality-container {
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.supported-features,
+.unsupported-features {
+    width: 50%;
+}
+
+.supported-features__title,
+.unsupported-features__title {
+    margin-bottom: 17px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.supported-features__title {
+    color: #00c853;
+}
+
+.unsupported-features__title {
+    color: #f2291f;
+}
+
+.supported-features__item,
+.unsupported-features__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    color: #1d2335;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.supported-features__icon,
+.unsupported-features__icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 14px;
+    background-size: 100%;
+    vertical-align: middle;
+}
+
+.supported-features__icon {
+    background-image: url('../img/check-square.svg');
+}
+
+.unsupported-features__icon {
+    background-image: url('../img/uncheck-square.svg');
+}

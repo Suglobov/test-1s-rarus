@@ -1,0 +1,65 @@
+
+.step2-active-ats {
+    position: relative;
+}
+
+.step2-active-ats__link {
+    color: #0096f2;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    text-decoration: none;
+}
+
+.step2-active-ats__icon {
+    display: inline-block;
+    width: 8px;
+    height: 5px;
+    background-image: url('../img/check.svg');
+    background-size: 100%;
+    vertical-align: middle;
+}
+
+.step2-active-ats__list {
+    position: absolute;
+    z-index: 10;
+    top: -1000px;
+    left: -21px;
+    display: block;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    background-color: white;
+    border-radius: 12px;
+    filter: drop-shadow(0 8px 40px rgba(14, 38, 100, 0.32));
+    opacity: 0;
+    transition: opacity;
+    transition-duration: 0.3s;
+
+    &::before {
+        position: absolute;
+        z-index: 10;
+        bottom: 100%;
+        left: 24px;
+        width: 18px;
+        height: 6px;
+        background-image: url('../img/corner.svg');
+        content: '';
+    }
+}
+
+.step2-active-ats_show-list {
+    .step2-active-ats__list {
+        top: calc(100% + 9px);
+        overflow: visible;
+        width: auto;
+        height: auto;
+        padding: 6px 0;
+        opacity: 1;
+    }
+
+    .step2-active-ats__icon {
+        transform: rotate(180deg);
+    }
+}

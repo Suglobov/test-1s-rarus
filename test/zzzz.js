@@ -17,11 +17,7 @@ import Foo from './Foo';
 
 
 jest.mock('axios', () => ({
-    get: Promise.resolve('value')
-        .then((res) => {
-            // console.log('res', res);
-            return res;
-        }),
+    get: Promise.resolve('value'),
 }));
 
 // async () => {
@@ -32,7 +28,7 @@ test('fetches async when a button is clicked', async () => {
     const wrapper = shallowMount(Foo);
     wrapper.find('button').trigger('click');
     await flushPromises();
-    console.log(wrapper.html());
+    // console.log(wrapper.html());
     expect(wrapper.text()).toBe('value');
 });
 // test('fetches async when a button is clicked', done => {

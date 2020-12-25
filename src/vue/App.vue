@@ -84,7 +84,7 @@ export default {
         },
     },
     mounted () {
-        axios('./data/ats.json').then((result) => {
+        axios.get('./data/ats.json').then((result) => {
             this.atsList = result.data['ats-list'];
         });
         this.activeAtsGroup = localStorage.getItem('activeAtsGroup') || '';
@@ -108,7 +108,7 @@ export default {
             // sendStep1Data
         },
         getDataToStep2 () {
-            axios('./data/demo-data.json').then((result) => {
+            axios.get('./data/demo-data.json').then((result) => {
                 this.step2Object = result.data;
             });
         },

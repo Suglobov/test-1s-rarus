@@ -21,8 +21,11 @@ function scss () {
         .pipe(csso())
         .pipe(gulp.dest('./build/css/'));
 }
+
 exports.copyimg = copyimg;
-exports.default = scss;
+
+exports.default = gulp.parallel(scss, copyimg);
+
 exports.watch = function () {
     gulp.watch('./src/scss/**/*.scss', scss);
     gulp.watch('./src/img/**', copyimg);

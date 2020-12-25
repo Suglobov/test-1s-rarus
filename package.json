@@ -9,6 +9,7 @@
   "scripts": {
     "webpack-watch": "npx webpack --mode development --watch --progress",
     "webpack-build": "npx webpack --mode production --progress",
+    "gulp": "npx gulp -f babel.gulp.js",
     "gulp-watch": "npx gulp -f babel.gulp.js watch",
     "gulp-copyimg": "npx gulp -f babel.gulp.js copyimg",
     "eslint-fix": "npx eslint src/** --fix",
